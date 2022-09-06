@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import { defaultInstance } from "../../apis/customAxios"; 
 import CreateUser from "./CreateUser";
 import UserList from "./UserList";
-import styled from "styled-components";
 
 const Home = () => {
     const [list, setList] = useState([]);
@@ -106,7 +105,7 @@ const Home = () => {
     return(
         <div className="App">
           <header className="App-header">
-            {/* <img src={logo} className="App-logo" alt="logo"/> */}
+            <img src={logo} className="App-logo" alt="logo"/>
               <>
               {/* {list.map((solo, index) => <li key={`${index}-${solo.name}`}>{solo.name}</li>)} */}
                 <UserList list={ list } onRemove={ onRemove } onModify={ onModify }></UserList>
