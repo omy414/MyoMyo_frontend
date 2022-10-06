@@ -30,10 +30,12 @@ const Home = () => {
     }, []);
 
     function getList(){
-        defaultInstance.post('/list')
-        .then(data => {
-            console.log(data.data.list);
-            setList(data.data.list);
+        defaultInstance.post('/main/list', {
+          
+        }).then(data => {
+          console.log(data);
+            console.log(data.data.result.list);
+            setList(data.data.result.list);
         })
     }
 
@@ -47,7 +49,7 @@ const Home = () => {
 
     function proc(){
         console.log("등록!!");
-        defaultInstance.post('/insert', {
+        defaultInstance.post('/main/insert', {
             name: name
             ,pw : pw
             ,email: email
@@ -63,7 +65,7 @@ const Home = () => {
     }
 
     const onUpdate = () => {
-        defaultInstance.post('/update', {
+        defaultInstance.post('/main/update', {
             seq : seq
             ,name : name
             ,pw : pw
@@ -93,7 +95,7 @@ const Home = () => {
     function onRemove(seq){
         console.log("삭제!!");
         console.log(seq);
-        defaultInstance.post('/delete', {
+        defaultInstance.post('/main/delete', {
             seq: seq
         }).then(data => {
             
